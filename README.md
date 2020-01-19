@@ -1,7 +1,12 @@
-# jassign: Jupyter Notebook Assignments
+# ds-assign: Jupyter Notebook Assignments
 Format and tools for authoring and distributing Jupyter notebook assignments
 
 Requires: **Python 3** (even if it's installed, check that it's your working version `python --version`)
+
+## Background
+This is a data 100 fork of jassign (<https://github.com/okpy/jassign>). 
+Big change so far: 
+Set student response cell types from "markdown" to "raw." Seems to fix a lot of latex problems.
 
 
 ## Getting started

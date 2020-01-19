@@ -10,16 +10,16 @@ except ImportError:
     okpy = ['okpy']
 
 setuptools.setup(
-    name="jassign",
+    name="dsassign",
     version="0.0.7",
-    author="John DeNero",
-    author_email="denero@berkeley.edu",
+    author="John DeNero, Will Huang",
+    author_email="denero@berkeley.edu, wwhuang@berkeley.edu",
     description="Jupyter notebook assignment formatting and distribution",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/okpy/jupyter-assignment",
     packages=setuptools.find_packages(),
-    package_data={'jassign': ['*.tplx']},
+    package_data={'dsassign': ['*.tplx']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -27,11 +27,11 @@ setuptools.setup(
     ],
     entry_points = {
         'console_scripts': [
-            'jassign = jassign.jassign:main',
-            'jassign-pdf = jassign.jassign_pdf:main'
+            'dsassign = jassign.jassign:main',
+            'dsassign-pdf = jassign.jassign_pdf:main'
         ]
     },
     install_requires=okpy + [
-        "pyyaml", "nbformat", "ipython", "nbconvert", "tqdm", "setuptools"
+        "pyyaml", "nbformat", "ipython", "nbconvert>=5.6.0", "tqdm", "setuptools"
     ],
 )
