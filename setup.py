@@ -17,7 +17,7 @@ setuptools.setup(
     description="Jupyter notebook assignment formatting and distribution",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/okpy/jupyter-assignment",
+    url="https://github.com/DS-100/ds-assign",
     packages=setuptools.find_packages(),
     package_data={'dsassign': ['*.tplx']},
     classifiers=[
