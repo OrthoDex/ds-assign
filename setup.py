@@ -11,7 +11,7 @@ except ImportError:
 
 setuptools.setup(
     name="dsassign",
-    version="0.0.7",
+    version="0.0.8",
     author="John DeNero, Will Huang",
     author_email="denero@berkeley.edu, wwhuang@berkeley.edu",
     description="Jupyter notebook assignment formatting and distribution",
@@ -27,8 +27,8 @@ setuptools.setup(
     ],
     entry_points = {
         'console_scripts': [
-            'dsassign = jassign.jassign:main',
-            'dsassign-pdf = jassign.jassign_pdf:main'
+            'dsassign = dsassign.dsassign:main',
+            'dsassign-pdf = dsassign.dsassign_pdf:main'
         ]
     },
     install_requires=okpy + [

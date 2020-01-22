@@ -1,4 +1,4 @@
-from jassign.to_pdf import is_question_cell, fix_dollar_sign
+from dsassign.to_pdf import is_question_cell, fix_dollar_sign
 import nbformat
 
 def test_is_question_cell():

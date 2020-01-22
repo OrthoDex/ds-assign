@@ -94,8 +94,8 @@ def gen_submit_cells(nb_path, manual_questions, instruction_text):
     submit = nbformat.v4.new_code_cell()
     source_lines = ["# Save your notebook first, then run this cell to submit."]
     if manual_questions:
-        source_lines.append("import jassign.to_pdf")
-        source_lines.append("jassign.to_pdf.generate_pdf('{}', '{}')".format(
+        source_lines.append("import dsassign.to_pdf")
+        source_lines.append("dsassign.to_pdf.generate_pdf('{}', '{}')".format(
             nb_path.name, nb_path.with_suffix('.pdf').name))
     source_lines.append("ok.submit()")
     submit.source = "\n".join(source_lines)

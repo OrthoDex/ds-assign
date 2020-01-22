@@ -4,7 +4,7 @@ Format and tools for authoring and distributing Jupyter notebook assignments
 Requires: **Python 3** (even if it's installed, check that it's your working version `python --version`)
 
 ## Background
-This is a data 100 fork of jassign (<https://github.com/okpy/jassign>). 
+This is a data 100 fork of dsassign (<https://github.com/DS-100/ds-assign>). 
 Big change so far: 
 Set student response cell types from "markdown" to "raw." Seems to fix a lot of latex problems.
 
@@ -25,7 +25,7 @@ An example notebook appears in `tests/example.ipynb`, which uses the [notebook
 format](docs/notebook-format.md). To convert it, run:
 
 ```python
-jassign tests/example.ipynb tests/output some/course
+dsassign tests/example.ipynb tests/output some/course
 ```
 
 
@@ -38,7 +38,7 @@ jassign tests/example.ipynb tests/output some/course
 * `some/course` is the endpoint/path of the assignment that's listed on okpy (typically starts with your university abbreviation and has a course name in it, ending with the assignment name).
 
 
-Before you run the `jassign` command, make sure that you **run the entire notebook** top to bottom (`Cell -> Run All`) to make sure that every cell has the correct output -- the output of the cells will be turned into the appropriate tests stored in the provided output directory (second argument of the `jassign` command). If you change the tests, you need to re-generate the files by re-running the notebook and the `jassign` command. **Note**: `jassign` will issue an error and quit if the output directory already exists.
+Before you run the `dsassign` command, make sure that you **run the entire notebook** top to bottom (`Cell -> Run All`) to make sure that every cell has the correct output -- the output of the cells will be turned into the appropriate tests stored in the provided output directory (second argument of the `dsassign` command). If you change the tests, you need to re-generate the files by re-running the notebook and the `dsassign` command. **Note**: `dsassign` will issue an error and quit if the output directory already exists.
 
 
 
@@ -46,7 +46,7 @@ Before you run the `jassign` command, make sure that you **run the entire notebo
 You can then generate a PDF from the result:
 
 ```python
-jassign-pdf tests/output/autograder/example.ipynb tests/output/autograder/example.pdf
+dsassign-pdf tests/output/autograder/example.ipynb tests/output/autograder/example.pdf
 ```
 
 
@@ -55,7 +55,7 @@ jassign-pdf tests/output/autograder/example.ipynb tests/output/autograder/exampl
 #### Test outside of a question
 
 ```
-File "/opt/conda/lib/python3.6/site-packages/jassign/to_ok.py", line 141, in gen_ok_cells
+File "/opt/conda/lib/python3.6/site-packages/dsassign/to_ok.py", line 141, in gen_ok_cells
     assert not is_test_cell(cell), 'Test outside of a question: ' + str(cell)
 AssertionError: Test outside of a question:
 ```
@@ -67,7 +67,7 @@ If you get this error, this means that you have _more than one cell_ between the
 
 #### Test cell with a blank on the last line
 
-If your test contains a blank/newline after the test, jassign seems to automatically add a semicolon at the end of the test, thus, supressing the output of the command.
+If your test contains a blank/newline after the test, dsassign seems to automatically add a semicolon at the end of the test, thus, supressing the output of the command.
 
 Example:
 
