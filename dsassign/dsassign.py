@@ -6,14 +6,17 @@ import pathlib
 
 try:
     from .to_ok import gen_views
+    from .to_otter_grader import gen_otter_grader_views
 except ImportError:
     from to_ok import gen_views
+    from to_otter_grader import gen_otter_grader_views
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("master", help="Notebook with solutions and tests.")
     parser.add_argument("result", help="Directory containing the result.")
     parser.add_argument("endpoint", help="OK endpoint; e.g., cal/data8/sp19")
+    parser.add_argument("grader", help="Type of grader; e.g: okpy or otter-grader", default='okpy')
     parser.add_argument("--no-submit-cell", help="Don't inject a submit cell into the notebook",
                         default=False, action="store_true")
     parser.add_argument("--no-run-tests", help="Don't run tests.",
@@ -33,7 +36,10 @@ def run_tests(nb_path):
 def main():
     args = parse_args()
     master, result = pathlib.Path(args.master), pathlib.Path(args.result)
-    gen_views(master, result, args)
+    ## Messy, TODO: Write abstraction on top of all graders so that it's easy adding support for new graders
+    grader = pathlib.Path(args.grader)
+    gen_view_fn = gen_views if grader == 'okpy' else gen_otter_grader_views
+    gen_view_fn(master, result, args)
     if not args.no_run_tests:
         run_tests(result / 'autograder'  / master.name )
 
